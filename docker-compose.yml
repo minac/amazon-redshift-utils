@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  utils:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /bin/bash
+    environment:
+      REDSHIFT_URL: redshift://the_user:some_pass@the.redshift.host:5439/some_db
