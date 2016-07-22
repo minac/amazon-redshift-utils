@@ -43,8 +43,6 @@ docker run amazon-redshift-utils ./redshift-encode.sh
 
 **WARNING!!!**
 
-Note that this in-place change to your tables will lose all permissions previously
-given to that table. IF you're running this script, it is a REQUIREMENT that you then run
-`GRANT SELECT ON ALL TABLES IN SCHEMA public TO <user>;` to get SELECT back for
-your user making queries. In majority-report, this can be done using
-``rake redshift:grant_select` on the ruby container.
+Running the column encoding utility will change permissions on tables. This
+shell script will do a GRANT for the looker role, since that's all we need,
+but if other permissions are needed you'll have to add that in yourself.
