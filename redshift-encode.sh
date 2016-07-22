@@ -20,6 +20,7 @@ python src/ColumnEncodingUtility/analyze-schema-compression.py \
   --comprows 100000 \
   --slot-count 5 \
   --do-execute true \
+  --drop-old-data true \
   --output-file /usr/src/app/log/encode.log
 
 PGPASSWORD=$pass psql -h $host -U $user -p $port -d $db -c "GRANT SELECT ON ALL TABLES IN SCHEMA public TO looker;"
